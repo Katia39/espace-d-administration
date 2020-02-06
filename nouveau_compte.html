@@ -10,6 +10,11 @@
       <form method="post" action="index_prive.html">
          <!--pas le bon fichier pour action -->
          <div>
+             <label for="date">Date<span>*</span></label>
+             <!-- A DISPARU NAAAAAN 
+             Pour griser, c'est "disabled"-->
+         </div>
+         <div>
             <!--on peut en selectionner plusieures-->
             <label for="q1">Civilité : </label>
             <input type="radio" name="q1" value="1"/> Madame
@@ -24,12 +29,17 @@
             <input type="last_name" name="last_name" required id="last_name"/>
          </div>
          <div>
-            <label for="mail">Mail :<span>*</span></label> 
+            <label for="email">Mail :<span>*</span></label> 
             <input type="email" name="email" required id="email" placeholder="exemple@orange.fr"/>
          </div>
          <div>
             <label for="password">Mot de passe : <span>*</span></label> 
             <input type="text" name="password" required id="password" placeholder="Votre mot de passe"/>
+         </div>
+         <div>
+             <label for="newsletter">Sohaitez-vous vous abonner à la Newsletter ? <span>*</span></label>
+             		<input type="radio" name="newsletter" value="1" />Oui
+	               	<input type="radio" name="newsletter" value="0" />Non
          </div>
          <div>
             <label for="fichier">Importer un fichier (.jpg) :<span>*</span></label>
