@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap');
+
+body{
+margin : 0;
+background-color: #FDEBD0;
+display : flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100vh; /*100vh = 100% de la page*/
+}
+
+body, input, select, textarea{   /*Ca permet dappliquer le CSS à toute la page */
+	font-family: "Merriweather";
+	font-weight: 400;
+}
+
+h1{
+	margin-bottom: 20px; /*important de montré que tu maitrisse les marges*/
+	color: orange;
+	font-weight: 700;
+}
+
+form{
+	background-color: white;
+	padding: 20px;
+}
+
+form div {
+	margin: 10px 0;
+}
+
+label{
+	display: inline-block; /*alligner les 2 casses*/
+	width: 250px;
+}
+
+input{
+	width: 250px;
+}
+
+input[type="submit"]{
+	width: auto;
+	padding: 5px 15px;
+	border: 0;
+	background-color: orange;
+	color: white;
+	text-transform: uppercase;
+	border-radius: 5px;
+	cursor: pointer; /*changer le curseur*/
+
+}
+input[type="submit"]:hover {  /*chnager la couleur du bouton valider quant la souris passe dessus*/
+	background-color: black
+}
+
+form div:last-child{
+	text-align: center;
+	margin-top: 20px;
+}
+label span{     /*changer la couleur des *      */
+	font-weight: 700;
+	color:red;
+}
+input[type="radio"]{
+	margin:none;
+	max-width: 2%;
+}
