@@ -1,12 +1,12 @@
 <DOCTYPE html>
     <html>
        <head>
-          <title>Nouveau compte</title>
+          <title>Connexion</title>
           <meta charset="utf-8" />
           <link rel="stylesheet" type="text/css" href="formulaire2.css"/>
        </head>
        <body>
-          <h1>Nouveau compte</h1>
+          <h1>Connexion</h1>
           <form method="post" action="index_prive.html">
           <div>
              <label for="mail">Mail :<span>*</span></label> 
