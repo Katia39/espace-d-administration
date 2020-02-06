@@ -19,5 +19,8 @@
           <div>
              <input type="submit" value="se connecter"/>
           </div>
+          <div>
+            <input type="submit" value="nouveaux compte"/>
+         </div>
        </body>
     </html>
