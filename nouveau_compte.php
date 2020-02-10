@@ -48,6 +48,7 @@
             <input type="file"
                id="fichier" name="fichier"
                accept="image/jpg">
+               <!-- Pour récupérer le nom de l'image j'ai ça -> $_FILES['userfile']['name'] peut ^être qu'on peut le changer à partir de là ?-->
          </div>
          <div>
             <input type="submit" value="se connecter"/>
