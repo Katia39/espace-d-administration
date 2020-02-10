@@ -37,7 +37,13 @@
          <div>
             <label for="password">Mot de passe : <span>*</span></label> 
             <input type="text" name="password" required id="password" placeholder="Votre mot de passe"/>
-         </div>
+          <?php
+      $password=$_POST["password"];
+           if (strlen($password)<4){
+            echo("Le mot de passe que vous avez choisi ne suit pas les réglementations"); }
+?>
+<!-- Faudrait qu'il s'actualise tout seul, si possible-->
+        </div>
          <div>
             <label for="fichier">Importer un fichier (.jpg) :<span>*</span></label>
             <input type="file"
