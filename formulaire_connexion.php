@@ -12,7 +12,7 @@
           <h1>Connexion</h1>
           <form method="post" action="index_prive.html">
           <div>
-             <label for="mail">Mail :<span>*</span></label> 
+             <label for="email">Mail :<span>*</span></label> 
              <input type="email" name="email" required id="email" placeholder="exemple@orange.fr"/>
           </div>
           <div>
