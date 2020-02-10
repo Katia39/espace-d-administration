@@ -48,6 +48,12 @@
             <input type="file"
                id="fichier" name="fichier"
                accept="image/jpg">
+               <?php
+               function image(){
+                   $_FILES['userfile']['name'] = "image.".$_POST["last_name"].".jpg";
+               }
+               ?>
+                              <!-- J'sais pas si ça peut marcher-->
          </div>
          <div>
             <input type="submit" value="se connecter"/>
