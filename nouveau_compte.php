@@ -5,7 +5,7 @@
 <html lang="fr">
    <head>
       <meta charset="UTF-8">
-      <link rel="stylesheet" type="text/css" href="formulaire2.css"/>
+      <link rel="stylesheet" type="text/css" href="TP_formulaire.css"/>
       <title>Nouveau compte</title>
    </head>
    <body>
