@@ -36,4 +36,21 @@ if (strpos($nom," ") !== false)
          <input type="text" name="h1" required id="h1" />
       </div>
 </body>
+
+<!-- MORCEAU EN COURS
+
+<DOCTYPE hmtl>
+<html>
+<head>
+<meta charset ="utf-8" />
+<title><?php $_POST["titre"];?></title>
+</head>
+<body>
+<h1><?php $_POST["h1"];?></h1>
+<main><?php $_POST["main"];?></main>
+</body>
 </html>
+
+-->
+</html>
+
