@@ -37,20 +37,16 @@ if (strpos($nom," ") !== false)
       </div>
 </body>
 
-<!-- MORCEAU EN COURS
+<!--Il faut qu'il execute la commande quand on appuie sur le bouton :thniking:-->
+<?php
+$opening = "test.php";
+$cequilfautecrire = echo("<DOCTYPE hmtl><html><head><meta charset ="utf-8" />
+<title><?php $_POST["titre"];?></title></head><body><h1><?php $_POST["h1"];?>
+</h1></body></html>");
+fopen($opening,"r");
+fwrite($opening, $cequilfautecrire);
+fclose($pening);
+?>
 
-<DOCTYPE hmtl>
-<html>
-<head>
-<meta charset ="utf-8" />
-<title><?php $_POST["titre"];?></title>
-</head>
-<body>
-<h1><?php $_POST["h1"];?></h1>
-<main><?php $_POST["main"];?></main>
-</body>
-</html>
-
--->
 </html>
 
