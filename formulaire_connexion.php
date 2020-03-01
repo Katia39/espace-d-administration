@@ -1,4 +1,5 @@
 <?php
+   session_start(); //création de la variable session pour savoir si on est bien connecté//
    include('./fonction.php');  //importé toutes les fonctions //
    // Cas où formulaire a été rempli
    if ( isset($_POST) && !empty($_POST) ) {
@@ -12,7 +13,8 @@
          $passwordCSV = getPasswordMail($mail);
          if ($passwordCSV == $password) {
             // Cas du bon mot de passe
-            header("Location : ./index_prive.html");
+            $_SESSION["connecter"] = true;
+            header("Location: ./index-prive.php"); //header renvoie vers la page//
          } else {
             // Cas du mauvais mot de passe
             ?><script>alert("Mauvais Mot de passe");</script><?php
@@ -21,6 +23,10 @@
          // Cas où il n'existe pas dans notre fichier CSV
          ?><script>alert("Mauvais nom d'utilisateur");</script><?php
       }
+   }
+
+   if (isset($_GET["acces"]) && $_GET["acces"] == "refuser") { //si le parametre get a pour valeur refuser alors : //
+      ?><script>alert("Pour accéder à cette page il faut être connecté");</script><?php
    }
 ?>
 <DOCTYPE html>
@@ -43,12 +49,12 @@
             <input type="email" class="form-control" name="email" id="mail" placeholder="name@example.com" required>
          </div>
          <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Password : <samp>*</samp></label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe" required>
          </div>
-         <div class="row">
-            <input class="btn btn-secondary col-md-5" type="submit" value="se connecter" />
-            <a class="btn btn-primary col-md-5" href="nouveau_compte.php" role="button">Nouveau compte</a>
+         <div class="row justify-content-between">
+            <input class="btn btn-secondary bouton-submit col-md-5" type="submit" value="se connecter" />
+            <a class="btn btn-primary bouton-submit col-md-5" href="nouveau_compte.php" role="button">Nouveau compte</a>
          </div>
    </body>
 
