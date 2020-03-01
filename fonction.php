@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Fonction qui ouvre le fichier CSV, renvoi une ressource
 function openCSV($droit) {
     $ressourceCsv = fopen("./csv/compte.csv", $droit);
@@ -15,13 +13,12 @@ function closeCSV($droit) {
 // Fonction qui ajoute dans le fichier CSV
 function addCSV($contenu) {
     $ressource = openCSV("a+");
-    fwrite($ressource, $contenu);
-
     if (!fwrite($ressource, $contenu)) {
-        echo("Erreur dans l'ajout de contenu");
+        return false;
     }
 
     closeCSV($ressource);
+    return true;
 }
 
 // Fonction qui permet de chercher une personne via son mail
@@ -84,7 +81,11 @@ function getDataCSV() {
 }
 // Fonction qui permet de supprimer un compte à partir d'un mail
 function deleteCSV($mail) {
-
+    if (findUserCSV($mail)) {
+        # code...
+    } else {
+        return false;
+    }
 }
 
 // Fonction qui permet de lire le CSV
@@ -103,7 +104,7 @@ function verif_mdp($mdp) {
             $test = 1;
         }
     }
-    if (strlen($mdp) < 4){
+    if (strlen($mdp) < 8){
         return(false);
     }
     elseif($test == 0) {
@@ -122,4 +123,11 @@ function verif_mdp($mdp) {
         return(true);
     }
 
+}
+
+// Permet de savoir si on est connecté ou pas
+function isConnecter($isConnecter) {   //si la personne n'est pas connecté, elle dera ramener vers la page d'acceuil (formulaire connexion)//
+    if (!isset($isConnecter) || !$isConnecter) {
+        header("Location: ./formulaire_connexion.php?acces=refuser"); //header renvoie vers la page//
+    }
 }
