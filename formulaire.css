@@ -39,18 +39,18 @@ input{
 	width: 250px;
 }
 
-input[type="submit"]{
-	width: auto;
-	padding: 5px 15px;
+.bouton-submit{
 	border: 0;
 	background-color: orange;
 	color: white;
 	text-transform: uppercase;
 	border-radius: 5px;
 	cursor: pointer; /*changer le curseur*/
+	text-align: center;
+	margin-top: 20px;
 
 }
-input[type="submit"]:hover {  /*chnager la couleur du bouton valider quant la souris passe dessus*/
+.bouton-submit:hover {  /*cha ger la couleur du bouton valider quant la souris passe dessus*/
 	background-color: black
 }
 
