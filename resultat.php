@@ -37,20 +37,19 @@ if (strpos($nom," ") !== false)
       </div>
 </body>
 
-<!-- MORCEAU EN COURS
 
-<DOCTYPE hmtl>
-<html>
-<head>
-<meta charset ="utf-8" />
-<title><?php $_POST["titre"];?></title>
-</head>
-<body>
-<h1><?php $_POST["h1"];?></h1>
-<main><?php $_POST["main"];?></main>
+        <!--Il faut qu'il execute la commande quand on appuie sur le bouton :thniking:-->
+<?php
+function formulaire(){
+$opening = "test.php";
+$cequilfautecrire = "<DOCTYPE hmtl><html><head><meta charset =\"utf-8\" />
+<title><?php $_POST\[\"titre\"];?></title></head><body><h1><?php $_POST\[\"h1\"];?>
+</h1></body></html>";
+fopen($opening,"r");
+fwrite($opening, $cequilfautecrire);
+fclose($opening);};
+?>
+<input type="submit" name="envoyer" value="envoyer" onclick="formulaire();">
 </body>
-</html>
-
--->
 </html>
 
