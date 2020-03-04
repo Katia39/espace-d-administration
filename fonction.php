@@ -100,9 +100,11 @@ function verif_mdp($mdp) {
     $tableau = array("0","1","2","3","4","5","6","7","8","9");
     $test = 0;
     foreach ($tableau as $chiffre) {
-        if(strpos($mdp,$chiffre) !== false) {
-            $test = 1;
-        }
+        
+    if(strpos($mdp,$chiffre) !== false) {
+        $test = 1;
+    }
+    
     }
     if (strlen($mdp) < 8){
         return(false);
