@@ -29,6 +29,7 @@
       ?><script>alert("Pour accéder à cette page il faut être connecté");</script><?php
    }
 ?>
+
 <DOCTYPE html>
    <html>
 
@@ -53,8 +54,7 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe" required>
          </div>
          <div class="row justify-content-between">
-            <input class="btn btn-secondary bouton-submit col-md-5" type="submit" value="se connecter" />
-            <a class="btn btn-primary bouton-submit col-md-5" href="nouveau_compte.php" role="button">Nouveau compte</a>
+            <input class="btn btn-secondary bouton-submit col-md-12" type="submit" value="se connecter" />
          </div>
    </body>
 
