@@ -56,13 +56,21 @@ input{
 
 form div:last-child{
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 20px;	
 }
-label span{     /*changer la couleur des *      */
+label span{     /*changer la couleur des*/
 	font-weight: 700;
 	color:red;
 }
 input[type="radio"]{
 	margin:none;
 	max-width: 2%;
+}
+.contenu{
+	width: auto;
+}
+
+.row{
+	margin-left: 0;
+	margin-left: 0;
 }
