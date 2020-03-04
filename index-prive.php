@@ -26,6 +26,7 @@
         <div class="row">
             <a href="./listeUtilisateur.php" class="btn btn-primary col-md-12 mt-5">Liste des utilisateurs</a>
             <a href="./resultat.php" class="btn btn-primary col-md-12 mt-5">Formulaire de création d'une page HTML</a>
+            <a class="btn btn-primary col-md-12 mt-5" href="nouveau_compte.php" role="button">Nouveau compte</a>
         </div>
     </div>
 
