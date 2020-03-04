@@ -29,22 +29,30 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="TP_formulaire.css" />
 </head>
 
 <body>
     <!-- carte css qui affichera les informations proprement. Pour eviter de le copier coller on va faire une boucle-->
     <div class="row flex-wrap">
-        <form method="post" action="">
+        <form method="post" class="carte" action="">
             <?php
 
             $monCSV = readCSV(); //recupere les info contenu dans le csv//
             $arrayCSV = explode("\n", $monCSV);
 
+$i = 1;
 
             foreach ($arrayCSV as $index => $ligneCSV) {
                 $ligneCSVenTableau = explode(";", $ligneCSV);
+
+                if ($i == 1)
+                {
+                    echo("<div class=\"row\">");
+                }
+
                 ?>
-                    <div class="card col-md-4">
+                    <div class="card col-md-4 contenu amber darken-1">
                         <img style="width: 100%; height: 100px; object-fit: contain;" src="./upload/<?php echo($ligneCSVenTableau[5]) ?>" class="card-img-top" alt="Photo de <?php echo($ligneCSVenTableau[2]." ".$ligneCSVenTableau[1])?>">
                         <div class="card-body">
                             <h5 class="card-title">Nom : <?php echo($ligneCSVenTableau[1]) ?>, Prénom : <?php echo($ligneCSVenTableau[2]) ?></h5>
@@ -54,6 +62,16 @@
                         </div>
                     </div>
                 <?php
+                if($i == 3)
+                {
+                    echo("</div>");
+                    $i = 1;
+                }
+
+                else
+                {
+                    $i++;
+                }
             }
             ?>
         </form>
