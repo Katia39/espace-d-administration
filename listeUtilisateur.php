@@ -5,7 +5,6 @@
     // Vérification qu'on est bien connecté
     isConnecter($_SESSION["connecter"]); // Appel la fonction isConnecter qui vérifie qu'on est bien connecté
 
-
     if (isset($_POST) && !empty($_POST)) { //il a remplis le formulaire//
         if(deleteCSV($mail)) {
             // Cas ou on a pu supprimer du contenu
@@ -34,25 +33,16 @@
 
 <body>
     <!-- carte css qui affichera les informations proprement. Pour eviter de le copier coller on va faire une boucle-->
-    <div class="row flex-wrap">
-        <form method="post" class="carte" action="">
+    <div class="container">
+        <form method="post" class="carte row flex-wrap" action="">
             <?php
 
             $monCSV = readCSV(); //recupere les info contenu dans le csv//
             $arrayCSV = explode("\n", $monCSV);
-
-$i = 1;
-
             foreach ($arrayCSV as $index => $ligneCSV) {
                 $ligneCSVenTableau = explode(";", $ligneCSV);
-
-                if ($i == 1)
-                {
-                    echo("<div class=\"row\">");
-                }
-
                 ?>
-                    <div class="card col-md-4 contenu amber darken-1">
+                    <div class="card col-md-4 darken-1">
                         <img style="width: 100%; height: 100px; object-fit: contain;" src="./upload/<?php echo($ligneCSVenTableau[5]) ?>" class="card-img-top" alt="Photo de <?php echo($ligneCSVenTableau[2]." ".$ligneCSVenTableau[1])?>">
                         <div class="card-body">
                             <h5 class="card-title">Nom : <?php echo($ligneCSVenTableau[1]) ?>, Prénom : <?php echo($ligneCSVenTableau[2]) ?></h5>
@@ -62,18 +52,8 @@ $i = 1;
                         </div>
                     </div>
                 <?php
-                if($i == 3)
-                {
-                    echo("</div>");
-                    $i = 1;
-                }
-
-                else
-                {
-                    $i++;
-                }
             }
-            ?>
+        ?>
         </form>
     </div>
 
