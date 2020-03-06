@@ -91,7 +91,7 @@ function deleteCSV($mail) {
 // Fonction qui permet de lire le CSV
 function readCSV() {
     $ressource = openCSV("r");
-    $csv = fread($ressource, 255);
+    $csv = fread($ressource, 8192);
     return $csv;
 }
 
