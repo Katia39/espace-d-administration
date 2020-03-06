@@ -6,28 +6,40 @@
    isConnecter($_SESSION["connecter"]); // Appel la fonction isConnecter qui vérifie qu'on est bien connecté
 
 //ctrl shift 
-   function nomfichier()
-   {
-      $_POST["nom"]=$nom;
-      if (strpos($nom," ") !== false)
-      {
-         return("Espaces interdits");
-      }
-      // Après faut faire en sorte que les caractères spéciaux soient interdits, mais je ne sais plus avec quoi :thinking://
-   }
-
-?>
+if(isset( $_POST["nom"])){
+    $nom = $_POST["nom"];
+    $minuscules = strtolower($nom);
+       if (strpos($nom," ") !== false)
+  {
+    $probleme="Les espaces sont interdits";
+  }
+}
+if(isset( $_POST["nom"]) & isset($_POST["titre"]) & isset($_POST["h1"])){
+    fopen("truddc.html","x+");
+    $open=fopen("trudcd.html", "x+");
+    $titre=$_POST["titre"];
+    $h1=$_POST["h1"];
+    fwrite($open,"<DOCTYPE html><html><head><title>".$titre."</title><meta charset=\"utf-8\"/></head><body>
+    <h1>".$h1."</h1></body></html>");
+    fclose($open);
+}?>
 <DOCTYPE html>
    <html>
 
    <head>
       <meta charset="utf-8" />
       <title>Page HTML</title>
+       <script src="https://cdn.tiny.cloud/1/zw3yblwmhk4wj20lto4p00dnaciaahrmunehx2eo4kk2iqld/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
    </head>
 
    <body>
-      <h1>Formulaire d'un page HTML</h1>
-      <form method="post" action="">
+     <?php
+  if (isset($probleme)){
+    echo("<p>".$probleme."</p>");
+  }
+  ?>
+      <h1>Formulaire d'une page HTML</h1>
+      <form method="post" action= "29.php">
          <div>
             <label for="nom">Nom du fichier : <span>*</span></label>
             <input type="text" name="nom" required id="nom" />
@@ -37,36 +49,24 @@
             <input type="text" name="titre" required id="titre" />
          </div>
          <div>
-            <label for="description">Description : <span>*</span></label>
-            <input type="text" name="description" required id="description" />
-         </div>
-         <div>
             <label for="h1">H1 : <span>*</span></label>
             <input type="text" name="h1" required id="h1" />
          </div>
-   </body>
-
-
-   <!--Il faut qu'Mil execute la commande quand on appuie sur le bouton :thniking:-->
-   <?php
-   function formulaire(){
-      $opening = "test.php";
-      $cequilfautecrire = "<DOCTYPE hmtl><html><head><meta charset =\"utf-8\" />
-      <title>".$_POST["TITRE"]."</title>
-         </head>
-
-         <body>
-            <h1>".$_POST["h1"]."</h1> 
-         </body>
-
-         </html>"; //pas obligé de reouvrir le php, on peut concatener//
-         fopen($opening,"r");
-         fwrite($opening, $cequilfautecrire);
-         fclose($opening);
-};
-
-   ?>
-   <input type="submit" name="envoyer" value="envoyer" onclick="formulaire();"> <!--tu peux pas utiliser onclick="formulaire"   si tu utilise des formules utiliser dans formulaire.php     il faut que tu redirige l'utilisateur sur la meme page-->
+         <div>
+          <label for="main">Main<span>*</span></label>
+        <textarea name="main" requiered id="main"></textarea>
+<script>
+    tinymce.init({
+    selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_drawer: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
+</div>
+   <input type="submit" value="envoyer"/>
    </body>
 
 </html>
