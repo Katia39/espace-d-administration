@@ -9,7 +9,7 @@
       if ($_POST["civilite"] == 1 || $_POST["civilite"] == 2) {    //pour eviter d'etre hacker verifier l'integrité//
          $civilite = $_POST["civilite"] ;
       } else {
-         ?><script>alert("Pas le bo" format pour la civilité);</script><?php
+         ?><script>alert("Pas le bo format pour la civilité");</script><?php
       }
 
       // On récupère le nom de famille
@@ -64,11 +64,11 @@
          }
 
          // on copie le fichier dans le dossier de destination
-         $image = "photo-".$last_name.".jpg";//nom du fichier//
+         $image = "photo-".strtolower($last_name).".jpg";//nom du fichier//
 
          if( !move_uploaded_file($tmp_file, $content_dir . $image) ) //move_upload_file deplace le fichier temporaire dans notre dossier upload(fichier qui heberge les images)//
          {
-            exit("Impossible de copier le fichier dans $content_dir");
+            exit("Impossible de copier le dossier dans $content_dir");
          }
       }
 
