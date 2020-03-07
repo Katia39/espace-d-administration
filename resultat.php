@@ -31,7 +31,8 @@ if(isset( $_POST["nom"]) & isset($_POST["titre"]) & isset($_POST["h1"])){
       <meta charset="utf-8" />
       <title>Page HTML</title>
        <script src="https://cdn.tiny.cloud/1/zw3yblwmhk4wj20lto4p00dnaciaahrmunehx2eo4kk2iqld/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-   </head>
+        <link rel="stylesheet" type="text/css" href="TP_formulaire.css" />
+        </head>
 
    <body>
      <?php
