@@ -6,41 +6,41 @@
    isConnecter($_SESSION["connecter"]); // Appel la fonction isConnecter qui vérifie qu'on est bien connecté
 
 
-if(isset($_POST["nom"])){
-   $nom = $_POST["nom"];
-   $minuscules = strtolower($nom);
-
-      if (strpos($nom," ") !== false){
-         $probleme="Les espaces sont interdits";
-      }
+if(isset( $_POST["nom"])){
+    $nom = $_POST["nom"];
+    $minuscules = strtolower($nom);
+       if (strpos($nom," ") !== false)
+  {
+    $probleme="Les espaces sont interdits";
+  }
 }
-
-if(isset( $_POST["nom"]) & isset($_POST["titre"]) & isset($_POST["h1"])){
-   fopen($nom.".html","x+");
-   $open=fopen($nom.".html", "x+");
-   $titre=$_POST["titre"];
-   $h1=$_POST["h1"];
-   $main=$_POST["main"];
-   fwrite($open,"<DOCTYPE html><html><head><title>".$nom."</title><meta charset=\"utf-8\"/></head><body><h1>".$h1."</h1><main>".$main."</main></body></html>");
-   fclose($open);
-}
-?>
-
+if(isset( $_POST["nom"]) & isset($_POST["titre"]) & isset($_POST["h1"]) & empty($probleme)){
+    fopen($nom.".html","x+");
+    $open=fopen($nom.".html", "x+");
+    $titre=$_POST["titre"];
+    $h1=$_POST["h1"];
+    $main=$_POST["main"];
+    fwrite($open,"<DOCTYPE html><html><head><title>".$nom."</title><meta charset=\"utf-8\"/></head><body>
+    <h1>".$h1."</h1><main>".$main."</main></body></html>");
+    fclose($nom.".html","x+");
+}?>
 <DOCTYPE html>
-<html>
+   <html>
+
    <head>
       <meta charset="utf-8" />
       <title>Page HTML</title>
-      <script src="https://cdn.tiny.cloud/1/zw3yblwmhk4wj20lto4p00dnaciaahrmunehx2eo4kk2iqld/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-      <link rel="stylesheet" type="text/css" href="TP_formulaire.css" />
+            <link rel="stylesheet" type="text/css" href="formucss.css" />
+       <script src="https://cdn.tiny.cloud/1/zw3yblwmhk4wj20lto4p00dnaciaahrmunehx2eo4kk2iqld/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
    </head>
-   
+
    <body>
-   <?php
-   if (isset($probleme)){
-      echo("<p>".$probleme."</p>");
-   }
-   ?>
+     <?php
+  if (isset($probleme)){
+    echo("<p>".$probleme."</p>");}
+  if (isset($nom)&empty($probleme)){
+    echo("<p>Votre fichier a été créé</p>");}
+  ?>
       <h1>Formulaire d'une page HTML</h1>
       <form method="post" action= "resultat.php">
          <div>
@@ -56,22 +56,23 @@ if(isset( $_POST["nom"]) & isset($_POST["titre"]) & isset($_POST["h1"])){
             <input type="text" name="h1" required id="h1" />
          </div>
          <div>
-            <label for="main">Main<span>*</span></label>
-            <textarea name="main" requiered id="main"></textarea>
-            <script>
-               tinymce.init({
-               selector: 'textarea',
-               plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-               toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-               toolbar_drawer: 'floating',
-               tinycomments_mode: 'embedded',
-               tinycomments_author: 'Author name',
-               });
-            </script>
-         </div>
-         <div class="row justify-content-between">
+          <label for="main">Main<span>*</span></label>
+        <textarea name="main" requiered id="main"></textarea>
+<script>
+    tinymce.init({
+    selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_drawer: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
+</div>
+<div class="row justify-content-between">
             <input class="btn btn-secondary bouton-submit col-md-12" type="submit" value="créer" />
          </div>
+       </form>
    </body>
 
 </html>
