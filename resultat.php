@@ -68,7 +68,9 @@ if(isset( $_POST["nom"]) & isset($_POST["titre"]) & isset($_POST["h1"])){
     });
   </script>
 </div>
-   <input type="submit" value="envoyer"/>
+<div class="row justify-content-between">
+            <input class="btn btn-secondary bouton-submit col-md-12" type="submit" value="créer" />
+         </div>
    </body>
 
 </html>
